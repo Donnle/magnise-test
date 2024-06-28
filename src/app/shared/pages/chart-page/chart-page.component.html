@@ -1,0 +1,60 @@
+<div class="chart">
+  <div class="chart-wrapper">
+    <div class="chart-content">
+      <div class="chart-content__header">
+        <h2 class="chart-content__header-title">Chart</h2>
+        <p class="chart-content__header-subtitle">To see the chart, you must select instrument</p>
+      </div>
+      <div class="chart-content__forms">
+        <form [formGroup]="marketplaceForm" class="forms-marketplace-form marketplace-form">
+          <mat-form-field>
+            <mat-label>Providers</mat-label>
+            <mat-select formControlName="providers" multiple>
+              @for (provider of providers; track provider) {
+                <mat-option [value]="provider">{{provider | uppercase}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Exchanges</mat-label>
+            <mat-select formControlName="exchanges" multiple>
+              @for (exchange of exchanges; track exchange) {
+                <mat-option [value]="exchange">{{exchange | uppercase}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </form>
+
+        <form [formGroup]="instrumentForm" class="forms-instrument-form instrument-form">
+          <mat-form-field>
+            <mat-label>Instrument</mat-label>
+            <mat-select required msInfiniteScroll (infiniteScroll)="updateInstruments()">
+              @for (instrument of instrumentsData.instruments; track instrument) {
+                <mat-optgroup [label]="instrument.symbol">
+                  @for (i of instrument.mappings | keyvalue; track i.key) {
+                    <mat-option
+                      [value]="instrument.id + ':' + i.key"
+                      (click)="onInstrumentChange(instrument.id, i.key)"
+                    >
+                      {{i.key}}: {{i.value.exchange || 'None'}}
+                    </mat-option>
+                  }
+                </mat-optgroup>
+              }
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <div class="chart-content__chart">
+        @if (selectedProvider && selectedInstrumentId) {
+          <app-candlestick-chart
+            [provider]='selectedProvider'
+            [instrumentId]='selectedInstrumentId'
+          ></app-candlestick-chart>
+        }
+      </div>
+    </div>
+  </div>
+</div>

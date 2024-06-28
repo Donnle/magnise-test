@@ -1,0 +1,20 @@
+{
+  "/identity/realms/fintatech/protocol/openid-connect/token": {
+    "target": "https://platform.fintacharts.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/instruments/v1/**": {
+    "target": "https://platform.fintacharts.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/bars/v1/bars/**": {
+    "target": "https://platform.fintacharts.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

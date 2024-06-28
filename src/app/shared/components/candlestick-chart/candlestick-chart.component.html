@@ -1,0 +1,19 @@
+@if (lastStickData) {
+  Date: {{lastStickData.date | date:'dd.MM.yyyy hh:mm'}}
+  <br>
+  Price: {{lastStickData.data.close | currency:'USD':'$':'.2-4'}}
+}
+
+@if (data.length > 0) {
+  <div
+    echarts
+    (chartDataZoom)="onChartDataZoomChange($event)"
+    [options]="options"
+    [merge]="updateOptions"
+    class="demo-chart"
+  ></div>
+} @else if (loadingService.loading$ | async) {
+  Loading...
+} @else {
+  No Data
+}

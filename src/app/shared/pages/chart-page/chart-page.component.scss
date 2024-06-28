@@ -1,0 +1,65 @@
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &-wrapper {
+    max-width: 1500px;
+    width: 100%;
+  }
+
+  &-content {
+    border-radius: 10px;
+    border: 1px solid #000;
+
+    padding: 30px;
+
+    &__forms {
+      display: flex;
+      gap: 30px;
+    }
+
+    &__marketplace-form {
+      display: flex;
+      gap: 30px;
+    }
+
+    &__instrument-form {
+    }
+  }
+}
+
+.marketplace-form {
+}
+
+.instrument-form {
+}
+.chart {
+}
+
+.chart-wrapper {
+}
+
+.chart-content {
+}
+
+.chart-content__forms {
+}
+
+.forms-marketplace-form {
+  display: flex;
+  gap: 30px;
+}
+
+.marketplace-form {
+}
+
+.forms-instrument-form {
+}
+
+.instrument-form {
+}
+
+.chart-content__chart {
+}

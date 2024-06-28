@@ -1,0 +1,11 @@
+{
+  "printWidth": 80,
+  "bracketSameLine": true,
+  "semi": true,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "cursorOffset": -1,
+  "endOfLine": "auto",
+  "useTabs": true
+}
